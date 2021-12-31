@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 require('dotenv').config();
+require("@nomiclabs/hardhat-etherscan");
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task("accounts", "Prints the list of accounts", async(taskArgs, hre) => {
@@ -35,4 +36,10 @@ module.exports = {
             accounts: [process.env.PRIVATE_KEY],
         },
     },
+    etherscan: {
+        // Your API key for Etherscan
+        // Obtain one at https://etherscan.io/
+        apiKey: process.env.API_KEY,
+    }
+    //if npx hardhat verify CONTRACT_ADDRESS --network rinkeby throws error of file not found, use npx hardhat clean
 };
